@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="92" id="KGk-i7-Jjw" customClass="CommonEquipmentTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="95p-qr-CS8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oVL-k9-xye">
+                                <rect key="frame" x="10" y="10" width="64" height="64"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="status_green" translatesAutoresizingMaskIntoConstraints="NO" id="AqY-9h-jy5">
+                                <rect key="frame" x="77" y="37" width="21" height="21"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nearmeicon_halflocated" translatesAutoresizingMaskIntoConstraints="NO" id="j3j-5g-UzG">
+                                <rect key="frame" x="77" y="10" width="21" height="21"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="INVACARE - ACTION3NG" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DtL-yE-puI">
+                                <rect key="frame" x="101" y="10" width="219" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Level 3 Storeroom" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Van-Ii-EcK">
+                                <rect key="frame" x="101" y="37" width="219" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SN: ASED0-1123" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aR-9m-XMX">
+                                <rect key="frame" x="101" y="61" width="219" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="320" id="o0p-6L-gVQ"/>
+                            <constraint firstAttribute="height" constant="91" id="yEu-BX-0ox"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XZ1-qG-n0J">
+                        <rect key="frame" x="320" y="0.0" width="225" height="91"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IF4-5h-xd4" userLabel="btnPage">
+                                <rect key="frame" x="0.0" y="0.0" width="75" height="91"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="91" id="lIH-Q4-faj"/>
+                                    <constraint firstAttribute="width" constant="75" id="w7o-4K-WyG"/>
+                                </constraints>
+                                <state key="normal" image="icon_signal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onPage:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="qJA-B9-vs0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hF-5a-2de" userLabel="btnFavorites">
+                                <rect key="frame" x="48" y="0.0" width="75" height="91"/>
+                                <color key="backgroundColor" red="0.25977530500000001" green="0.7288552989" blue="0.30808676829999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="0j3-B5-9fN"/>
+                                    <constraint firstAttribute="height" constant="91" id="6k8-Pp-QUX"/>
+                                </constraints>
+                                <state key="normal" image="favoriteicon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onFavorite:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="XbE-fx-r9O"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csL-XN-c80" userLabel="btnLocate">
+                                <rect key="frame" x="123" y="0.0" width="75" height="91"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="91" id="JBi-9c-YyP"/>
+                                    <constraint firstAttribute="width" constant="75" id="eid-fD-Tyi"/>
+                                </constraints>
+                                <state key="normal" image="nearmeicon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onLocate:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8eu-cf-NQS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onq-vY-XBs" userLabel="btnDelete">
+                                <rect key="frame" x="0.0" y="0.0" width="75" height="91"/>
+                                <color key="backgroundColor" red="0.78840438180000005" green="0.2258161397" blue="0.14991930540000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="bFE-8w-eDE"/>
+                                    <constraint firstAttribute="height" constant="91" id="uvA-NR-Uck"/>
+                                </constraints>
+                                <state key="normal" image="trashicon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onDelete:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Soo-Nb-gLh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3hF-5a-2de" firstAttribute="top" secondItem="XZ1-qG-n0J" secondAttribute="top" id="DZS-Fp-gFb"/>
+                            <constraint firstItem="csL-XN-c80" firstAttribute="leading" secondItem="XZ1-qG-n0J" secondAttribute="leading" constant="123" id="EKt-mD-Fwp"/>
+                            <constraint firstItem="IF4-5h-xd4" firstAttribute="top" secondItem="XZ1-qG-n0J" secondAttribute="top" id="Pzb-V6-emh"/>
+                            <constraint firstItem="onq-vY-XBs" firstAttribute="top" secondItem="XZ1-qG-n0J" secondAttribute="top" id="Raq-6Q-IBc"/>
+                            <constraint firstAttribute="height" constant="91" id="UZ1-20-P1z"/>
+                            <constraint firstItem="IF4-5h-xd4" firstAttribute="leading" secondItem="XZ1-qG-n0J" secondAttribute="leading" id="Yhu-xu-sfW"/>
+                            <constraint firstItem="3hF-5a-2de" firstAttribute="leading" secondItem="XZ1-qG-n0J" secondAttribute="leading" constant="48" id="Yw0-PN-rUu"/>
+                            <constraint firstItem="csL-XN-c80" firstAttribute="top" secondItem="XZ1-qG-n0J" secondAttribute="top" id="bjY-Pd-D1r"/>
+                            <constraint firstAttribute="width" constant="225" id="dwb-uW-eEg"/>
+                            <constraint firstItem="onq-vY-XBs" firstAttribute="leading" secondItem="XZ1-qG-n0J" secondAttribute="leading" id="gMt-u4-L7S"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="XZ1-qG-n0J" firstAttribute="leading" secondItem="95p-qr-CS8" secondAttribute="trailing" id="MsI-Kz-Ybk"/>
+                    <constraint firstItem="XZ1-qG-n0J" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="OGd-lv-0N3"/>
+                    <constraint firstItem="95p-qr-CS8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gAu-x7-zQF"/>
+                    <constraint firstItem="95p-qr-CS8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="sFP-Da-7Ge"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnDelete" destination="onq-vY-XBs" id="lGU-fU-GuV"/>
+                <outlet property="btnFavorites" destination="3hF-5a-2de" id="thq-jc-Pg4"/>
+                <outlet property="btnLocate" destination="csL-XN-c80" id="9kw-yw-sOp"/>
+                <outlet property="btnPage" destination="IF4-5h-xd4" id="oBu-vQ-rqW"/>
+                <outlet property="ivImg" destination="oVL-k9-xye" id="uZ0-Yb-ch4"/>
+                <outlet property="ivStatus" destination="AqY-9h-jy5" id="l8t-Lj-24d"/>
+                <outlet property="ivTracking" destination="j3j-5g-UzG" id="j1D-sU-bqM"/>
+                <outlet property="lblLocation" destination="Van-Ii-EcK" id="hwL-fn-tVW"/>
+                <outlet property="lblName" destination="DtL-yE-puI" id="hg8-O2-mG3"/>
+                <outlet property="lblSn" destination="9aR-9m-XMX" id="8bH-ZV-E2m"/>
+                <outlet property="leftConstraintOfBtnDelete" destination="gMt-u4-L7S" id="Xnb-dq-dL7"/>
+                <outlet property="leftConstraintOfBtnFavorites" destination="Yw0-PN-rUu" id="acT-HD-CSN"/>
+                <outlet property="leftConstraintOfBtnLocate" destination="EKt-mD-Fwp" id="8w6-Rx-GnY"/>
+                <outlet property="leftConstraintOfView" destination="sFP-Da-7Ge" id="gJb-fL-7Kf"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="favoriteicon" width="30" height="30"/>
+        <image name="icon_signal" width="30" height="30"/>
+        <image name="nearmeicon" width="30" height="30"/>
+        <image name="nearmeicon_halflocated" width="30" height="30"/>
+        <image name="status_green" width="21" height="21"/>
+        <image name="trashicon" width="30" height="30"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

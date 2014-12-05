@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Alert" representedClassName="Alert" syncable="YES">
+        <attribute name="alert_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="alert_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="current_location_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="current_location_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="current_location_parent_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="direction" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="equipment_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="location_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location_parent_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serial_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="trigger_datetime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="trigger_string" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Equipment" representedClassName="Equipment" syncable="YES">
+        <attribute name="barcode_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="current_location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="current_location_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="current_location_parent_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="current_location_parent_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="equipment_alert_icon" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="equipment_alert_icon_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="equipment_file_location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="equipment_file_location_local" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="equipment_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="generic_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="generic_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="has_beacon" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <attribute name="home_location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="home_location_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="home_location_parent_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="home_location_parent_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isfavorites" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="islocating" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isrecent" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="major" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="manufacturer_file_location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="manufacturer_file_location_local" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="manufacturer_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="manufacturer_path_key" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="minor" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="model_file_location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="model_file_location_local" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="model_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="model_name_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recenttime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="serial_no" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sticknfind_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="EquipMovement" representedClassName="EquipMovement" syncable="YES">
+        <attribute name="ble_location_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="check_in_date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="direction" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="equipment_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="location_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parent_location_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stay_minutes" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="stay_time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time_limit" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Generic" representedClassName="Generic" syncable="YES">
+        <attribute name="alert_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="alert_icon" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="alert_icon_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="generic_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="generic_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="genericwise_equipment_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="isfavorites" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isrecent" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="recenttime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="status_message" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="GenericLocation" representedClassName="GenericLocation" syncable="YES">
+        <attribute name="ble_location_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="ble_parent_location_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="generic_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="generic_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location_wise_equipment_count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="major" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="minimum_level" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="minor" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="optimal_level" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="parent_location_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status_message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="warning_level" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="MovementCount" representedClassName="MovementCount" syncable="YES">
+        <attribute name="equipment_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="fri" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="mon" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sat" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sun" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="thu" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="tue" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="wed" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="TriggeredAlert" representedClassName="TriggeredAlert" syncable="YES">
+        <attribute name="alert_id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="opened" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="opened_date" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Alert" positionX="-36" positionY="117" width="128" height="240"/>
+        <element name="Equipment" positionX="-36" positionY="81" width="128" height="555"/>
+        <element name="EquipMovement" positionX="-18" positionY="144" width="128" height="210"/>
+        <element name="Generic" positionX="-63" positionY="-18" width="128" height="193"/>
+        <element name="GenericLocation" positionX="-54" positionY="18" width="128" height="255"/>
+        <element name="MovementCount" positionX="-36" positionY="135" width="128" height="163"/>
+        <element name="TriggeredAlert" positionX="-27" positionY="144" width="128" height="90"/>
+    </elements>
+</model>
