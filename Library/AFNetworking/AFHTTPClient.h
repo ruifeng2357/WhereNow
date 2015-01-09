@@ -101,7 +101,7 @@ typedef enum {
 @class AFHTTPRequestOperation;
 @protocol AFMultipartFormData;
 
-#define kAFNetworkRequestTimeout    20.0
+#define kAFNetworkRequestTimeout    60.0
 
 @interface AFHTTPClient : NSObject <NSCoding, NSCopying>
 

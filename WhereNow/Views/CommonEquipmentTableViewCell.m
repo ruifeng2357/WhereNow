@@ -35,6 +35,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *btnPage;
 
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *leftConstraintOfView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *rightConstraintOfView;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *leftConstraintOfBtnFavorites;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *leftConstraintOfBtnLocate;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *leftConstraintOfBtnDelete;
@@ -53,6 +54,9 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+    [self.btnDelete setBackgroundColor:[UIColor colorWithRed:(201/255.f) green:(58/255.f) blue:(38/255.f) alpha:1.0f]];
+    [self.btnFavorites setBackgroundColor:[UIColor colorWithRed:(66/255.f) green:(186/255.f) blue:(79/255.f) alpha:1.0f]];
+    [self.btnLocate setBackgroundColor:[UIColor colorWithRed:(239/255.f) green:(239/255.f) blue:(244/255.f) alpha:1.0f]];
 }
 
 - (void)bind:(Equipment *)equipment generic:(Generic *)generic type:(CommonEquipmentCellType)cellType
@@ -112,6 +116,7 @@
     _editor = NO;
     
     self.leftConstraintOfView.constant = 0.f;
+    self.rightConstraintOfView.constant = 0.f;
     
     switch (self.cellType) {
         case CommonEquipmentCellTypeSearch:
@@ -198,18 +203,31 @@
             case CommonEquipmentCellTypeSearch:
             case CommonEquipmentCellTypeRecent:
                 self.leftConstraintOfView.constant = -kButtonWidth * 2;
+                self.rightConstraintOfView.constant = kButtonWidth * 2;
                 break;
             case CommonEquipmentCellTypeNearme:
                 if ([[BackgroundTaskManager sharedManager].arrayVicinityEquipments containsObject:self.equipment])
+                {
                     self.leftConstraintOfView.constant = -kButtonWidth;
+                    self.rightConstraintOfView.constant  = kButtonWidth;
+                }
                 else
+                {
                     self.leftConstraintOfView.constant = -kButtonWidth * 2;
+                    self.rightConstraintOfView.constant = kButtonWidth * 2;
+                }
                 break;
             case CommonEquipmentCellTypeFavorites:
                 if (self.generic == nil)
+                {
                     self.leftConstraintOfView.constant = -kButtonWidth * 2;
+                    self.rightConstraintOfView.constant = kButtonWidth * 2;
+                }
                 else
+                {
                     self.leftConstraintOfView.constant = -kButtonWidth;
+                    self.rightConstraintOfView.constant = kButtonWidth;
+                }
 
             default:
                 break;
@@ -218,6 +236,7 @@
     else
     {
         self.leftConstraintOfView.constant = 0;
+        self.rightConstraintOfView.constant = 0;
     }
     
     if (animate)

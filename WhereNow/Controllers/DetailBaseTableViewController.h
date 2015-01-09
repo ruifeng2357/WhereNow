@@ -13,6 +13,7 @@
 @interface DetailBaseTableViewController : UITableViewController
 
 @property (nonatomic, weak) id<EquipmentDetailMenuDelegate> delegate;
+@property (nonatomic, weak) UIBarButtonItem *menuItem;
 
 - (void)didPagedDevice;
 

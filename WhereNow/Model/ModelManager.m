@@ -8,6 +8,7 @@
 
 #import "ModelManager.h"
 #import "AppContext.h"
+#import "UserContext.h"
 #import "Config.h"
 #import "Common.h"
 
@@ -29,6 +30,14 @@ static ModelManager *_sharedModelManager = nil;
 - (void)initModelManager
 {
     _managedObjectContext = [self appContext];
+}
+
+- (id)initWithDelegate:(id<RightViewDelegate>)delegate
+{
+    self = [super init];
+    self.delegateRight = delegate;
+    
+    return self;
 }
 
 
@@ -261,14 +270,38 @@ static ModelManager *_sharedModelManager = nil;
     
     NSError *error = nil;
     
+    int nRoamingCount = 0;
+    int nReturnCount = 0;
+    int nOutCount = 0;
+    int currLocId = [[UserContext sharedUserContext].currentLocationId intValue];
     NSArray *fetchedObjects = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
     if (fetchedObjects.count > 0)
     {
         for (int i = 0; i < [fetchedObjects count]; i++) {
             Equipment *equipment = (Equipment *)[fetchedObjects objectAtIndex:i];
+            
+            /***************/
+            int equipHomeLocId = [equipment.home_location_id intValue];
+            int equipCurLocId = [equipment.current_location_id intValue];
+            
+            if (currLocId != equipHomeLocId && currLocId == equipCurLocId)
+                nRoamingCount++;
+            
+            if (currLocId == equipHomeLocId && currLocId != equipCurLocId)
+                nReturnCount++;
+            
+            if (currLocId != equipHomeLocId && currLocId != equipCurLocId)
+                nOutCount++;
+            
+            /***************/
+            
             [result addObject:equipment];
         }
     }
+    
+    NSString *szLocName;
+    szLocName = [UserContext sharedUserContext].currentLocation;
+    [self.delegateRight didGetDevicesInfo:szLocName indevices:[NSString stringWithFormat:@"%d", [fetchedObjects count]] withindevices:[NSString stringWithFormat:@"%d", nRoamingCount] requesteddevices:[NSString stringWithFormat:@"%d", nReturnCount] outdevices:[NSString stringWithFormat:@"%d", nOutCount]];
     
     return result;
 }

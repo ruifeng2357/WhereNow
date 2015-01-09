@@ -10,6 +10,8 @@
 
 @interface MainTabBarController : UITabBarController
 
++ (MainTabBarController *)sharedInstance;
+
 - (void)setBadgeOnNearMe:(NSString *)badgeValue;
 
 @end

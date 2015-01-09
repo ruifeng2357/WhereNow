@@ -390,6 +390,10 @@ static CommonLocationTableViewCell *_prototypeLocationTableViewCell = nil;
 #else
         equipTabBar.modalTransitionStyle = [UIManager detailModalTransitionStyle];
         //equipTabBar.transitioningDelegate = [UIManager pushTransitioingDelegate];
+        
+        equipTabBar.view.frame = [MainTabBarController sharedInstance].view.bounds;
+        equipTabBar.providesPresentationContextTransitionStyle = YES;
+        equipTabBar.modalPresentationStyle = UIModalPresentationFormSheet;
         [self presentViewController:equipTabBar animated:YES completion:nil];
 #endif
     }

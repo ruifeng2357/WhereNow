@@ -33,6 +33,7 @@ static UserContext *_sharedUserContext = nil;
         _tokenId = @"";
         _currentLocation = @"";
         _currentLocationId = @"";
+        _currTagMinor = 0;
 
         [self load];
     }
@@ -87,6 +88,9 @@ static UserContext *_sharedUserContext = nil;
     _currentLocation = @"";
     _currentLocationId = @"";
 #endif
+    obj = [userDefaults objectForKey:@"tagMinor"];
+    if (obj != nil)
+        _currTagMinor = (NSNumber *)obj;
 }
 
 - (void)save
@@ -102,6 +106,7 @@ static UserContext *_sharedUserContext = nil;
     [userDefaults setObject:self.tokenId forKey:@"tokenid"];
     //[userDefaults setObject:self.currentLocation forKey:@"curentlocation"];
     //[userDefaults setObject:self.currentLocationId forKey:@"currentlocationid"];
+    [userDefaults setObject:self.currTagMinor forKey:@"tagMinor"];
     
     [userDefaults synchronize];
 }
@@ -162,6 +167,12 @@ static UserContext *_sharedUserContext = nil;
 - (void)setCurrentLocationId:(NSString *)currentLocationId
 {
     _currentLocationId = currentLocationId;
+}
+
+- (void)setCurrTagMinor:(NSNumber *)currTagMinor
+{
+    _currTagMinor = currTagMinor;
+    [self save];
 }
 
 @end

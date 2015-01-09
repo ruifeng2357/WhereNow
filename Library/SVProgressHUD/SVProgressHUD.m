@@ -49,7 +49,18 @@
 + (SVProgressHUD*)sharedView {
     static dispatch_once_t once;
     static SVProgressHUD *sharedView;
-    dispatch_once(&once, ^ { sharedView = [[SVProgressHUD alloc] initWithFrame:[[UIScreen mainScreen] bounds]]; });
+    dispatch_once(&once, ^ {
+        UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+        
+        CGRect orientationFrame = [[UIScreen mainScreen] bounds];// [UIScreen mainScreen].bounds;
+        
+        if(UIInterfaceOrientationIsLandscape(orientation)) {
+            float temp = orientationFrame.size.width;
+            orientationFrame.size.width = orientationFrame.size.height;
+            orientationFrame.size.height = temp;
+        }
+        sharedView = [[SVProgressHUD alloc] initWithFrame:orientationFrame];
+    });
     return sharedView;
 }
 
@@ -152,11 +163,23 @@
             CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
             CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace, colors, locations, locationsCount);
             CGColorSpaceRelease(colorSpace);
+            //////////////
+            UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
             
-            CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
-            float radius = MIN(self.bounds.size.width , self.bounds.size.height) ;
+            CGRect orientationFrame = self.bounds;// [UIScreen mainScreen].bounds;
+            
+            if(UIInterfaceOrientationIsLandscape(orientation)) {
+                float temp = orientationFrame.size.width;
+                orientationFrame.size.width = orientationFrame.size.height;
+                orientationFrame.size.height = temp;
+            }
+
+            ///////////
+            CGPoint center = CGPointMake(orientationFrame.size.width/2, orientationFrame.size.height/2);
+            float radius = MIN(orientationFrame.size.width , orientationFrame.size.height) ;
             CGContextDrawRadialGradient (context, gradient, center, 0, center, radius, kCGGradientDrawsAfterEndLocation);
             CGGradientRelease(gradient);
+            
             
             break;
         }
@@ -277,7 +300,7 @@
         keyboardHeight = self.visibleKeyboardHeight;
     }
     
-    CGRect orientationFrame = [UIScreen mainScreen].bounds;
+    CGRect orientationFrame = self.overlayWindow.bounds;// [UIScreen mainScreen].bounds;
     CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
     
     if(UIInterfaceOrientationIsLandscape(orientation)) {
@@ -454,8 +477,22 @@
 
 - (UIWindow *)overlayWindow {
     if(!overlayWindow) {
-        overlayWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        overlayWindow.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+        CGRect orientationFrame = [UIScreen mainScreen].bounds;
+        CGRect statusBarFrame = [UIApplication sharedApplication].statusBarFrame;
+        
+        if(UIInterfaceOrientationIsLandscape(orientation)) {
+            float temp = orientationFrame.size.width;
+            orientationFrame.size.width = orientationFrame.size.height;
+            orientationFrame.size.height = temp;
+            
+            temp = statusBarFrame.size.width;
+            statusBarFrame.size.width = statusBarFrame.size.height;
+            statusBarFrame.size.height = temp;
+        }
+        
+        overlayWindow = [[UIWindow alloc] initWithFrame:orientationFrame];
+        //overlayWindow.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         overlayWindow.backgroundColor = [UIColor clearColor];
         overlayWindow.userInteractionEnabled = NO;
     }

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Generic.h"
 #import "SwipeTableView.h"
+#import "MainTabBarController.h"
 
 @interface RecentEquipmentsViewController : UIViewController
 <

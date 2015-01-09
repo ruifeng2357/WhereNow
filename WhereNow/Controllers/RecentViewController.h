@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainTabBarController.h"
 
 @interface RecentViewController : UIViewController <
 UITableViewDataSource,

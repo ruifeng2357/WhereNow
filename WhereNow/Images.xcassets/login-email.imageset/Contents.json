@@ -1,26 +1,18 @@
 {
   "images" : [
     {
-      "idiom" : "iphone",
+      "idiom" : "universal",
       "scale" : "1x",
       "filename" : "login-email.png"
     },
     {
-      "idiom" : "iphone",
+      "idiom" : "universal",
       "scale" : "2x",
       "filename" : "login-email@2x.png"
     },
     {
-      "idiom" : "iphone",
+      "idiom" : "universal",
       "scale" : "3x"
-    },
-    {
-      "idiom" : "ipad",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "ipad",
-      "scale" : "2x"
     }
   ],
   "info" : {

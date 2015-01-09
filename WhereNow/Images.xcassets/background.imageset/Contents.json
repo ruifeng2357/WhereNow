@@ -21,11 +21,13 @@
     },
     {
       "idiom" : "ipad",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "background~ipad.png"
     },
     {
       "idiom" : "ipad",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "background@2x~ipad.png"
     }
   ],
   "info" : {

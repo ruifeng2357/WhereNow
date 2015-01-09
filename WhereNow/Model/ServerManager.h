@@ -29,6 +29,7 @@
 #define kMethodForDeviceList         @"getregistereddevice"
 #define kMethodForCheckDeviceRemoved    @"isdeviceremoved"
 #define kMethodForReceivedDevice    @"";
+#define kMethodForSetPhoneBeacon @"setphonebeacon"
 
 #define DEF_SERVERMANAGER   ServerManager *manager = [ServerManager sharedManager];
 
@@ -52,7 +53,7 @@ typedef void (^ServerManagerRequestHandlerBlock)(NSString *, NSDictionary *, NSE
  */
 //- (void)getGenericsV2:(NSString *)sessionId userId:(NSString *)userId success:(void (^)())success failure:(void (^)(NSString *))failure;
 
-- (void)updateDeviceToken:(NSString *)deviceToken sessionId:(NSString *)sessionId userId:(NSString *)userId deviceName:(NSString *)deviceName success:(void (^)(NSString *tokenId))success failure:(void (^)(NSString *))failure;
+- (void)updateDeviceToken:(NSString *)deviceToken sessionId:(NSString *)sessionId userId:(NSString *)userId deviceName:(NSString *)deviceName success:(void (^)(NSString *tokenId, NSString *locname, NSString *locid))success failure:(void (^)(NSString *))failure;
 
 - (void)userLogout:(NSString *)sessionId userId:(NSString *)userId tokenId:(NSString *)tokenId isRemote:(BOOL)isRemote success:(void (^)(NSString *tokenId))success failure:(void (^)(NSString *))failure;
 
@@ -64,10 +65,11 @@ typedef void (^ServerManagerRequestHandlerBlock)(NSString *, NSDictionary *, NSE
 
 - (void)getRegisteredDeviceList:(NSString *)sessionId userId:(NSString *)userId success:(void (^)(NSArray *arrayDevices))success failure:(void (^)(NSString *))failure;
 
-- (void)sendReceivedDevices:(NSString *)Minor receiver:(NSString *)receiver success:(void (^)(BOOL removed))success failure:(void (^)(NSString *))failure;
+- (void)sendReceivedDevices:(NSString *)Minor receiver:(NSString *)receiver isvisible:(int)isvisible success:(void (^)(BOOL removed))success failure:(void (^)(NSString *))failure;
 
 - (void)checkDeviceRemoved:(NSString *)sessionId userId:(NSString *)userId tokenId:(NSString *)tokenId success:(void (^)(BOOL removed))success failure:(void (^)(NSString *))failure;
 
+- (void) setPhoneBeacon:(NSString *)sessionid tid:(NSString *)tid uuid:(NSString *) uuid major:(NSString *)major minor:(NSString *)minor success:(void (^)(BOOL success)) success failure:(void (^)(NSString *)) failure;
 
 /**
  *

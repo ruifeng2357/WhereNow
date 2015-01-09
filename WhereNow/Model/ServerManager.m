@@ -60,11 +60,9 @@ NSString * const WhereNowErrorDomain = @"com.wherenow";
     }
     
     NSURL  *url = nil;
-    if (methodName.length != 0)
-        url = [NSURL URLWithString:API_URL];
-    else
-        url = [NSURL URLWithString:@"http://dev.scmedical.com.au/ble_entry.php"];
+    url = [NSURL URLWithString:API_URL];
     NSLog(@"requesting : %@%@\n%@", url, methodName, params);
+    
 	AFHTTPClient  *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
     
     void (^successHandler)(AFHTTPRequestOperation *operation, id responseObject)  = ^(AFHTTPRequestOperation *operation, id responseObject)
@@ -502,7 +500,7 @@ NSString * const WhereNowErrorDomain = @"com.wherenow";
     }];
 }
 
-- (void)updateDeviceToken:(NSString *)deviceToken sessionId:(NSString *)sessionId userId:(NSString *)userId deviceName:(NSString *)deviceName success:(void (^)(NSString *tokenId))success failure:(void (^)(NSString *))failure
+- (void)updateDeviceToken:(NSString *)deviceToken sessionId:(NSString *)sessionId userId:(NSString *)userId deviceName:(NSString *)deviceName success:(void (^)(NSString *tokenId, NSString *locname, NSString *locid))success failure:(void (^)(NSString *))failure
 {
     
     DEF_SERVERMANAGER
@@ -535,7 +533,18 @@ NSString * const WhereNowErrorDomain = @"com.wherenow";
         {
             //NSString *userId = [response objectForKey:@"UID"];
             NSString *tokenId = [response objectForKey:@"tid"];
-            success(tokenId);
+            NSString *curLocationName = [response objectForKey:@"location_name"];
+            if (curLocationName == nil || [curLocationName isEqual:[NSNull null]])
+                curLocationName = @"";
+            else if ([curLocationName isEqualToString:@""])
+                curLocationName = @"";
+            NSString *curLocID = [response objectForKey:@"lid"];
+            if (curLocID == nil || [curLocID isEqual:[NSNull null]])
+                curLocID = @"0";
+            else if ([curLocID isEqualToString:@""])
+                curLocID = @"0";
+            
+            success(tokenId, curLocationName, curLocID);
         }
     }];
 }
@@ -734,11 +743,15 @@ NSString * const WhereNowErrorDomain = @"com.wherenow";
     }];
 }
 
--(void) sendReceivedDevices:(NSString *)Minor receiver:(NSString *)receiver success:(void (^)(BOOL removed))success failure:(void (^)(NSString *))failure
+-(void) sendReceivedDevices:(NSString *)Minor receiver:(NSString *)receiver isvisible:(int)isvisible success:(void (^)(BOOL removed))success failure:(void (^)(NSString *))failure
 {
     DEF_SERVERMANAGER
     
-    NSDictionary *params = @{@"Minor":Minor, @"receiver":receiver};
+    NSDictionary *params;
+    if (isvisible != 2)
+        params = @{@"Minor":Minor, @"receiver":receiver};
+    else
+        params = @{@"Minor":Minor, @"receiver":receiver, @"visible":@"false"};
     
     NSString *methodName = kMethodForReceivedDevice;
     
@@ -772,6 +785,46 @@ NSString * const WhereNowErrorDomain = @"com.wherenow";
                 success(YES);
         }
     }];
+}
+
+- (void) setPhoneBeacon:(NSString *)sessionid tid:(NSString *)tid uuid:(NSString *) uuid major:(NSString *)major minor:(NSString *)minor success:(void (^)(BOOL success)) success failure:(void (^)(NSString *)) failure;
+{
+    DEF_SERVERMANAGER;
+    
+    NSDictionary *params = @{@"tid":tid, @"uuid":uuid, @"major":major, @"minor":minor};
+    NSString *methodName = [NSString stringWithFormat:@"%@%@/%@.json", kAPIBaseUrlV2, sessionid, kMethodForSetPhoneBeacon];
+    
+    [manager postMethod:methodName params:params handler:^(NSString *responseStr, NSDictionary *response, NSError *error){
+        
+        if (error != nil)
+        {
+            failure([error localizedDescription]);
+            return;
+        }
+        
+        if (response == nil)
+        {
+            if ([responseStr isEqualToString:@"Invalid Parameters\n"])
+            {
+                failure(@"Invalid Parameters!");
+            }
+            else if ([responseStr isEqualToString:@"Invalid Beacon\n"])
+            {
+                failure(@"Invalid Beacon!");
+            }
+            else
+            {
+                failure(@"Invalid response");
+            }
+            return;
+        }
+        else
+        {
+            success(YES);
+        }
+    }];
+    
+    return;
 }
 
 - (void)checkDeviceRemoved:(NSString *)sessionId userId:(NSString *)userId tokenId:(NSString *)tokenId success:(void (^)(BOOL))success failure:(void (^)(NSString *))failure

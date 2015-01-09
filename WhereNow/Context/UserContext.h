@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSString *tokenId;
 @property (nonatomic, strong) NSString *currentLocation;
 @property (nonatomic, strong) NSString *currentLocationId;
+@property (nonatomic, strong) NSNumber *currTagMinor;
 
 + (UserContext *)sharedUserContext;
 
@@ -36,5 +37,6 @@
 - (void)setTokenId:(NSString *)tokenId;
 - (void)setCurrentLocation:(NSString *)currentLocation;
 - (void)setCurrentLocationId:(NSString *)currentLocationId;
+- (void)setCurrTagMinor:(NSNumber *)currTagMinor;
 
 @end

@@ -14,11 +14,18 @@
 #import "LocatingManager.h"
 #import "ServerManagerHelper.h"
 
+static MainTabBarController *_sharedMainTabBarController = nil;
+
 @interface MainTabBarController ()
 
 @end
 
 @implementation MainTabBarController
+
++ (MainTabBarController *)sharedInstance
+{
+    return _sharedMainTabBarController;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +40,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _sharedMainTabBarController = self;
     
     self.navigationController.navigationBarHidden = YES;
     

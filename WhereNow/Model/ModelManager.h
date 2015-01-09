@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RightViewController.h"
 
 
 #import "Generic.h"
@@ -19,17 +20,26 @@
 
 #define SQLITE_DB_NAME      @"wherenow.sqlite"
 
+
+@protocol RightViewDelegate <NSObject>
+
+@optional
+- (void) didGetDevicesInfo: (NSString *)regionName indevices:(NSString *) indevices withindevices:(NSString *) withindevices requesteddevices:(NSString *) requesteddevices outdevices:(NSString *)outdevices;
+
+@end
+
 @interface ModelManager : NSObject
 
 @property (strong, readonly, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, readonly, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (strong, readonly, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-
+@property (nonatomic, weak) id<RightViewDelegate> delegateRight;
 
 + (ModelManager *)sharedManager;
 
 - (void)initModelManager;
+- (id)initWithDelegate:(id<RightViewDelegate>)delegate;
 
 - (void)saveContext;
 

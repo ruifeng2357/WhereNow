@@ -30,6 +30,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *btnDelete;
 
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *leftConstraintOfView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *rightConstraintOfView;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *leftConstraintOfBtnFavorites;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *leftConstraintOfBtnLocate;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *leftConstraintOfBtnDelete;
@@ -57,7 +58,7 @@
     self.cellType = cellType;
     
     self.lblName.text = generic.generic_name;
-    self.lblNumberOfNearby.text = [NSString stringWithFormat:@"%d nearby", (int)[generic.genericwise_equipment_count integerValue]];
+    self.lblNumberOfNearby.text = [NSString stringWithFormat:@"%d registered", (int)[generic.genericwise_equipment_count integerValue]];
     self.lblNotes.text = generic.status_message;
     
     // favourites icon
@@ -103,6 +104,7 @@
     
     _editor = NO;
     self.leftConstraintOfView.constant = 0.f;
+    self.rightConstraintOfView.constant = 0.f;
     
     // buttons
     switch (cellType) {
@@ -149,9 +151,11 @@
             case CommonGenericsCellTypeRecent:
             case CommonGenericsCellTypeNearme:
                 self.leftConstraintOfView.constant = -kButtonWidth * 2;
+                self.rightConstraintOfView.constant = kButtonWidth * 2;
                 break;
             case CommonGenericsCellTypeFavorites:
                 self.leftConstraintOfView.constant = -kButtonWidth * 2;
+                self.rightConstraintOfView.constant = kButtonWidth * 2;
             default:
                 break;
         }
@@ -159,6 +163,7 @@
     else
     {
         self.leftConstraintOfView.constant = 0;
+        self.rightConstraintOfView.constant = 0;
     }
     
     if (animate)

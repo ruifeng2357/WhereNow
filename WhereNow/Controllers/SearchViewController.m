@@ -19,6 +19,7 @@
 #import "CommonEquipmentTableViewCell.h"
 #import "CommonLocationTableViewCell.h"
 #import "ServerManagerHelper.h"
+#import "MainTabBarController.h"
 
 #define GENERICS_INDEX      0
 #define EQUIPMENT_INDEX     1
@@ -434,6 +435,12 @@ static CommonLocationTableViewCell *_prototypeLocationTableViewCell = nil;
 #else
             equipTabBar.modalTransitionStyle = [UIManager detailModalTransitionStyle];
             //equipTabBar.transitioningDelegate = [UIManager pushTransitioingDelegate];
+            
+            equipTabBar.view.frame = [MainTabBarController sharedInstance].view.bounds;//self.view.bounds;
+            equipTabBar.providesPresentationContextTransitionStyle = YES;
+            equipTabBar.modalPresentationStyle = UIModalPresentationFormSheet;
+            //equipTabBar.definesPresentationContext = YES;
+            
             [self presentViewController:equipTabBar animated:YES completion:nil];
 #endif
         }

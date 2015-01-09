@@ -111,7 +111,10 @@ static EquipmentTabBarController *_sharedEquipmentTabBarController = nil;
                                   nil];
     //    [actionSheet setTintColor:[UIColor darkGrayColor]];
     
-    [actionSheet showFromBarButtonItem:sender animated:YES];
+    if (menuSender.menuItem == nil)
+        [actionSheet showFromBarButtonItem:sender animated:YES];
+    else
+        [actionSheet showFromBarButtonItem:menuSender.menuItem animated:YES];
 }
 
 #pragma mark - Action Sheet Delegate

@@ -185,9 +185,11 @@
     // update device token
     if ([UserContext sharedUserContext].isLoggedIn)
     {
-        [[ServerManager sharedManager] updateDeviceToken:cleanDeviceToken sessionId:[UserContext sharedUserContext].sessionId userId:[UserContext sharedUserContext].userId deviceName:[[UIDevice currentDevice] name] success:^(NSString *tokenId) {
+        [[ServerManager sharedManager] updateDeviceToken:cleanDeviceToken sessionId:[UserContext sharedUserContext].sessionId userId:[UserContext sharedUserContext].userId deviceName:[[UIDevice currentDevice] name] success:^(NSString *tokenId, NSString *locname, NSString *locid) {
             NSLog(@"device token registered : %@", cleanDeviceToken);
             [UserContext sharedUserContext].tokenId = tokenId;
+            [UserContext sharedUserContext].currentLocation = locname;
+            [UserContext sharedUserContext].currentLocationId = locid;
         } failure:^(NSString *msg) {
             NSLog(@"device token registering failed - %@", msg);
         }];

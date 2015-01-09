@@ -78,6 +78,7 @@
     
     UIBarButtonItem *_menuButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menuicon"] style:UIBarButtonItemStylePlain target:self action:@selector(onMenu:)];
     self.navigationItem.rightBarButtonItem = _menuButton;
+    self.menuItem = _menuButton;
     
     EquipmentTabBarController *tabbarController = (EquipmentTabBarController *)self.tabBarController;
     _equipment = tabbarController.equipment;
